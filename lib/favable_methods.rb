@@ -9,7 +9,7 @@ module Acts #:nodoc:
 
     module ClassMethods
       def acts_as_favable(options={})
-        has_many :favorites, {:as => :favable, :dependent => :destroy}.merge(options)
+        has_many :favorites, as: :favable, dependent: :destroy, **options
         include Acts::Favable::InstanceMethods
         extend Acts::Favable::SingletonMethods
       end
